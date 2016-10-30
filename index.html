@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>RepkaCH</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/style.css">
+        <script type="text/javascript" src="/jquery-3.1.1.js"></script>
+    </head>
+    <body>
+        <div id = "polynom"></div>
+        <a href="//vk.com/public101760079"><div class="kek">RepkaCH</div></a>
+        <input type="text" id = "firsta" placeholder = "Real part ">
+        <input type="text" id = "firstb" placeholder = "Imaginary part">
+        <br>
+        <input type="text" id = "seconda" placeholder = "Real part"> 
+        <input type="text" id = "secondb" placeholder = "Imaginary part"> 
+        <div style="height: 28rem"></div>
+        <kekk class="block3">Копираста 2K16 (c)by Mopkovka and XxX_22814881337XbOpOcT13371488228_XxX
+        <br> kekkekkek@repkach.tk </kekk>
+        <script>
+            $("#firsta").css("position", "absolute").css("top", "240px").css("left", "500px");
+            $("#firstb").css("position", "absolute").css("top", "240px").css("left", "680px");
+            $("#seconda").css("position", "absolute").css("top", "270px").css("left", "500px");
+            $("#secondb").css("position", "absolute").css("top", "270px").css("left", "680px");
+            function abs(x){
+                if (x < 0) x = -x;
+                return x;
+            }
+            function getRandom() {
+                return Math.ceil(Math.random() * 10000);
+            }
+            form1 = "";
+            form2 = "";
+            form3 = "";
+            form4 = "";
+            var x1, x2, y1, y2, flag, a, b, c, d;
+            function gen(){
+                a = getRandom();
+                b = getRandom();
+                d = getRandom();
+                if (b * b - 4 * a * c >= 0){
+                    flag=1;
+                    x1 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+                    x2 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+                    y1=0;
+                    y2=0;
+                    //console.log(x1, x2);
+                } else {
+                    flag=0;
+                    x1 = (-b / (2 * a));
+                    y1 = (Math.sqrt(abs(b * b - 4 * a * c)) / (2 * a));
+                    y2 = -(Math.sqrt(abs(b * b - 4 * a * c))) / (2 * a);
+                    x2 = (-b / (2 * a));
+                }
+                if (flag == 1 && x1 > x2) {
+                    c=x1;
+                    x1=x2;
+                    x2=c;
+                }
+                if (flag == 0 && y1 > y2) {
+                    c=y1;
+                    y1=y2;
+                    y2=c;
+                }
+
+            }
+            gen();
+            $("#polynom").css("position", "absolute").css("top", "200px").css("left", "500px").css("width", "200px").css("height", "200px");
+            $("#polynom").html(a + "x^2 + " + b + "x + " + d + " = 0<br>Найдите корни");
+            /**function copl(f, s){
+            this.f = f;
+                this.s = s;
+            }
+            function copl(){
+                this.f = 0;
+                this.s = 0;
+            }
+            copl.prototype.plus = function(a){
+                tmp = new copl(a.f + this.f, a.s + this.s);
+                return tmp;
+            }**/  
+            $(document).keydown(function(e){
+                key = e.which;
+                if (key == 13){ // key = 'enter'
+                    form1 = $("#firsta").val();
+                    form3 = $("#firstb").val();
+                    form2 = $("#seconda").val();
+                    form4 = $("#secondb").val();
+                    //alert(13);
+                    form1 = parseFloat(form1);
+                    form2 = parseFloat(form2);
+                    form3 = parseFloat(form3);
+                    form4 = parseFloat(form4);
+                    if (form1 > form2){
+                        c = form1;
+                        form1 = form2;
+                        form2 = c;
+                    }
+                    //alert(14);
+                    if (form3 > form4){
+                        c = form3;
+                        form3 = form4;
+                        form4 = c;
+                    }
+                    //alert(15);
+                    console.log(x1, x2, y1, y2, form1, form2, form3, form4);
+                    if ((abs(form1-x1) < 0.001) && (abs(form2-x2) < 0.001) && (abs(form3-y1) < 0.001) && (abs(form4-y2) < 0.001)) {
+                        alert("TRUEREPKACH");
+                    } else {
+                        alert("NETRUEREPKACH");                        
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
