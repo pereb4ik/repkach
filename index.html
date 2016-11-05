@@ -11,7 +11,7 @@
         <center>
             <a href="//vk.com/public101760079"><div class="kek">RepkaCH</div></a>
             <div id = "polynom"></div>
-            <input type="text" id = "firsta" placeholder = "Real part ">
+            <input type="text" id = "firsta" placeholder = "Real part">
             <input type="text" id = "firstb" placeholder = "Imaginary part">
             <br>
             <input type="text" id = "seconda" placeholder = "Real part">
@@ -24,45 +24,53 @@
         <kekk class="block3">Copyrasted by Batya© 2K16
         <br> kekkekkek@repkach.tk </kekk>
         <script>
-
             function abs(x){
-                if (x < 0) x = -x;
-                return x;
+                if (x < 0) {
+                  return -x;
+                } else {
+                  return x;
+                }
             }
             function getRandom() {
+              if(Math.random() > 0.5){
                 return Math.ceil(Math.random() * 10000);
+              } else {
+                return -Math.ceil(Math.random() * 10000);
+              }
+            }
+            function swap(a, b) {
+              var tmp;
+              a = tmp;
+              a = b;
+              b = tmp;
             }
             form1 = "";
             form2 = "";
             form3 = "";
             form4 = "";
-            var x1, x2, y1, y2, flag, a, b, c, d;
+            var x1, x2, y1, y2, flag, a, b, c, trash, eps = 0.001;
             function gen(){
                 a = getRandom();
                 b = getRandom();
-                d = getRandom();
+                c = getRandom();
                 if (b * b - 4 * a * c >= 0){
-                    flag=1;
+                    flag = 1;
                     x1 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
                     x2 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
-                    y1=0;
-                    y2=0;
+                    y1 = 0;
+                    y2 = 0;
                 } else {
-                    flag=0;
+                    flag = 0;
                     x1 = (-b / (2 * a));
                     y1 = (Math.sqrt(abs(b * b - 4 * a * c)) / (2 * a));
                     y2 = -(Math.sqrt(abs(b * b - 4 * a * c))) / (2 * a);
                     x2 = (-b / (2 * a));
                 }
                 if (flag == 1 && x1 > x2) {
-                    c=x1;
-                    x1=x2;
-                    x2=c;
+                    swap(x1, x2);
                 }
                 if (flag == 0 && y1 > y2) {
-                    c=y1;
-                    y1=y2;
-                    y2=c;
+                    swap(y1, y2);
                 }
             }
             gen();
@@ -72,29 +80,44 @@
                 form3 = $("#firstb").val();
                 form2 = $("#seconda").val();
                 form4 = $("#secondb").val();
+                if(form3 == ""){
+                  form3 = 0;
+                } else {
+                  form3 = parseFloat(form3);
+                }
+                if(form4 == ""){
+                  form4 = 0;
+                } else {
+                  form4 = parseFloat(form4);  
+                }
                 form1 = parseFloat(form1);
                 form2 = parseFloat(form2);
-                form3 = parseFloat(form3);
-                form4 = parseFloat(form4);
                 if (form1 > form2){
-                    c = form1;
-                    form1 = form2;
-                    form2 = c;
+                  swap(form1, form2);
                 }
                 if (form3 > form4){
-                    c = form3;
-                    form3 = form4;
-                    form4 = c;
+                  swap(form3, form4);
                 }
                 console.log(x1, x2, y1, y2, form1, form2, form3, form4);
-                if ((abs(form1-x1) < 0.001) && (abs(form2-x2) < 0.001) && (abs(form3-y1) < 0.001) && (abs(form4-y2) < 0.001)) {
+                if ( (abs(form1 - x1) < eps) && (abs(form2 - x2) < eps) && (abs(form3 - y1) < eps) && (abs(form4 - y2) < eps) ) {
                     alert("TRUEREPKACH");
                 } else {
                     alert("NETRUEREPKACH");
                 }
             }
             $("#polynom").css("width", "200px").css("height", "4rem").css("font-family", "'Fira Sans'");
-            $("#polynom").html(a + "x^2 + " + b + "x + " + d + " = 0<br>Найдите корни");
+            if(b > 0 && c > 0){
+              $("#polynom").html(a + "x^2 + " + b + "x + " + c + " = 0<br>Найдите корни");
+            }
+            if(b > 0 && c < 0){
+              $("#polynom").html(a + "x^2 + " + b + "x - " + -c + " = 0<br>Найдите корни");
+            }
+            if(b < 0 && c > 0){
+              $("#polynom").html(a + "x^2 - " + -b + "x + " + c + " = 0<br>Найдите корни");
+            }
+            if(b < 0 && c < 0){
+              $("#polynom").html(a + "x^2 - " + -b + "x - " + -c + " = 0<br>Найдите корни");
+            }
             $(document).keydown(function(e){
                 key = e.which;
                 if (key == 13){ // key = 'enter'
