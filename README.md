@@ -1,2 +1,2 @@
 # repkach
-Site RepkaCH with jQuery
+Site RepkaCH
