@@ -5,7 +5,6 @@
         <title>RepkaCH</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="jquery-3.1.1.js"></script>
     </head>
     <body>
         <center>
@@ -18,11 +17,12 @@
             <input type="text" id = "secondb" placeholder = "Imaginary part">
             <br>
             <br>
-            <a class="blue" onclick="check()">Return</a>
+            <a class="blue" onclick="check()">RETURN</a>
         </center>
         <div style="height: 28rem"></div>
-        <kekk class="block3">Copyrasted by Batya© 2K16
-        <br> kekkekkek@repkach.tk </kekk>
+        <kekk class="block3">
+          Copyrasted by Batya(c) 2K17
+        <br> noname@repkach.tk </kekk>
         <script>
             function abs(x){
                 if (x < 0) {
@@ -76,10 +76,10 @@
             gen();
 
             function check(){
-                form1 = $("#firsta").val();
-                form3 = $("#firstb").val();
-                form2 = $("#seconda").val();
-                form4 = $("#secondb").val();
+                form1 = firsta.value;
+                form3 = firstb.value;
+                form2 = seconda.value;
+                form4 = secondb.value;
                 if(form3 == ""){
                   form3 = 0;
                 } else {
@@ -108,25 +108,18 @@
                     alert("NETRUEREPKACH");
                 }
             }
-            $("#polynom").css("width", "200px").css("height", "4rem").css("font-family", "'Fira Sans'");
             if(b > 0 && c > 0){
-              $("#polynom").html(a + "x^2 + " + b + "x + " + c + " = 0<br>Найдите корни");
+              polynom.innerHTML = a + "x^2 + " + b + "x + " + c + " = 0<br>Найдите корни";
             }
             if(b > 0 && c < 0){
-              $("#polynom").html(a + "x^2 + " + b + "x - " + -c + " = 0<br>Найдите корни");
+              polynom.innerHTML = a + "x^2 + " + b + "x - " + -c + " = 0<br>Найдите корни";
             }
             if(b < 0 && c > 0){
-              $("#polynom").html(a + "x^2 - " + -b + "x + " + c + " = 0<br>Найдите корни");
+              polynom.innerHTML = a + "x^2 - " + -b + "x + " + c + " = 0<br>Найдите корни";
             }
             if(b < 0 && c < 0){
-              $("#polynom").html(a + "x^2 - " + -b + "x - " + -c + " = 0<br>Найдите корни");
+              polynom.innerHTML = a + "x^2 - " + -b + "x - " + -c + " = 0<br>Найдите корни";
             }
-            $(document).keydown(function(e){
-                key = e.which;
-                if (key == 13){ // key = 'enter'
-                    check();
-                }
-            });
         </script>
     </body>
 </html>

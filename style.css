@@ -1,23 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 body {
     background: url(index.jpg) no-repeat center fixed;
     background-size: cover;
     text-align: center;
+    font-family: 'Open Sans';
+    font-weight: 600;
 }
 .kek {
-    font-family: 'Fira Sans';
-    font-size: 5rem; 
-    font-weight: 100;
+    font-size: 5rem;
+    font-weight: 400;
 }
 .block3 {
-    font-family: 'Fira Sans';
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
     height: 10rem;
 }
-.polynom{
-    font-family: 'Fira Sans';
+.polynom {
+    width: 200px;
+    height: 4rem;
 }
 .blue{
     -webkit-border-radius:5px;
@@ -25,10 +26,8 @@ body {
     background:-webkit-gradient(linear,left top,left bottom,from(#e68e00),to(#eddb7c));
     color:black;
     font-size:13px;
-    font-weight:300;
-    font-family: 'Fira Sans';
+    /*font-weight:300;*/
     text-shadow:0 1px 0 #98ccfe;
-    text-transform:uppercase;
     padding:7px 11px;
 }
 .blue:hover{
@@ -42,7 +41,7 @@ body {
     background:#000;background:-webkit-gradient(linear,left top,left bottom,from(#bf4c03),to(#d38200));
     box-shadow:0 1px 0 #444;
 }
-A:link {text-decoration: none; color: black;} 
-A:visited {text-decoration: none; color: black; text-align: center;} 
+A:link {text-decoration: none; color: black;}
+A:visited {text-decoration: none; color: black; text-align: center;}
 A:active {text-decoration: none; color: black; text-align: center;}
 A:hover {text-decoration: none; color: black;}
